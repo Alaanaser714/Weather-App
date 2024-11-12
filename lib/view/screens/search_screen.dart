@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,6 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.amber,
           title: const Text(
             "Search a city",
             style: TextStyle(
@@ -24,27 +23,30 @@ class SearchScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 100,
               ),
-              Text(
+              const Text(
                 "Search for a city:",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextField(
+                onSubmitted: (value) {
+                  log(value);
+                },
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(
+                  contentPadding: const EdgeInsets.symmetric(
                     horizontal: 20,
                     vertical: 30,
                   ),
-                  suffixIcon: Icon(Icons.search),
-                  label: Text(
+                  suffixIcon: const Icon(Icons.search),
+                  label: const Text(
                     "search",
                     style: TextStyle(
                       fontSize: 20,
@@ -54,17 +56,11 @@ class SearchScreen extends StatelessWidget {
                   hintText: "Enter city name",
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.orange,
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.orange,
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
