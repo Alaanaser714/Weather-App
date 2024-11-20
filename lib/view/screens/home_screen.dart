@@ -39,7 +39,9 @@ class HomeScreen extends StatelessWidget {
           if (state is WaetherInitialState) {
             return NoWeatherBody();
           } else if (state is WeatherLoadedState) {
-            return WeatherInfoBody();
+            return WeatherInfoBody(
+              weather: state.weatherModel,
+            );
           } else {
             return Center(
                 child: Text(
