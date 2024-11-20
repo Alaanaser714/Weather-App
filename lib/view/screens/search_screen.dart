@@ -1,6 +1,7 @@
-import 'dart:developer';
-
+// ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubits/get_weather_cubit/get_weather_cubit.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -37,8 +38,11 @@ class SearchScreen extends StatelessWidget {
                 height: 10,
               ),
               TextField(
-                onSubmitted: (value) {
-                  log(value);
+                onSubmitted: (value) async {
+                  var getWeatherCubit =
+                      BlocProvider.of<GetWeatherCubit>(context);
+                  getWeatherCubit.getWeather(cityName: value);
+                  Navigator.pop(context);
                 },
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.symmetric(
