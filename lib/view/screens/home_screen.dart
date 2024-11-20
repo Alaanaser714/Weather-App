@@ -41,7 +41,15 @@ class HomeScreen extends StatelessWidget {
           } else if (state is WeatherLoadedState) {
             return WeatherInfoBody();
           } else {
-            return Text("there was an error ");
+            return Center(
+                child: Text(
+              "there was an error ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+                color: Colors.red,
+              ),
+            ));
           }
         },
       ),

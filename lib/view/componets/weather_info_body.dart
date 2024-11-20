@@ -23,7 +23,7 @@ class WeatherInfoBody extends StatelessWidget {
             ),
           ),
           Text(
-            'updated at 23:46',
+            'updated at ${weatherModel.dateTime.hour}:${weatherModel.dateTime.minute}',
             style: const TextStyle(
               fontSize: 24,
             ),
@@ -34,11 +34,11 @@ class WeatherInfoBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                weatherModel.image!,
+              Image.network(
+                "https:${weatherModel.image}",
               ),
               Text(
-                '17',
+                weatherModel.temp.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 32,
@@ -47,13 +47,13 @@ class WeatherInfoBody extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'Maxtemp: 24',
+                    'Maxtemp: ${weatherModel.maxTemp.round()}',
                     style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
                   Text(
-                    'Mintemp: 16',
+                    'Mintemp: ${weatherModel.mintemp.round()}',
                     style: const TextStyle(
                       fontSize: 16,
                     ),
@@ -66,7 +66,7 @@ class WeatherInfoBody extends StatelessWidget {
             height: 32,
           ),
           Text(
-            'Ligh Rain',
+            weatherModel.weatherState,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 32,

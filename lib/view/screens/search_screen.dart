@@ -40,7 +40,7 @@ class SearchScreen extends StatelessWidget {
               TextField(
                 onSubmitted: (value) async {
                   var getWeatherCubit =
-                      BlocProvider.of<GetWeatherCubit>(context);
+                      await BlocProvider.of<GetWeatherCubit>(context);
                   getWeatherCubit.getWeather(cityName: value);
                   Navigator.pop(context);
                 },
